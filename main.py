@@ -1,9 +1,12 @@
+# โมดูลที่ต้องใช้
 import random
 import time
 
 
+# เล่นอีกรอบ
+
 def replay():
-    # Main Game Section 1
+    # ตัวเกมหลัก
     def rps():
         if answer == 1:
             return "Rock"
@@ -12,23 +15,16 @@ def replay():
         elif answer == 3:
             return "Scissors"
 
-    # Player choice, Bot choice
-    choice = str(input("Please choose between Rock (R), Paper (P), Scissors (S) "))
-    answer = random.randint(1, 3)
-    rps()
-
-    # Main Game Section 2
+    # เปลี่ยนตัวเลือกย่อยเป็นคำหลัก
     def rename():
-        if choice == "R" or choice == "r" or choice == "Rock":
+        if choice == "R" or choice == "r" or choice == "Rock" or choice == "rock":
             return "Rock"
-        if choice == "P" or choice == "p" or choice == "Paper":
+        if choice == "P" or choice == "p" or choice == "Paper" or choice == "paper":
             return "Paper"
-        if choice == "S" or choice == "s" or choice == "Scissors":
+        if choice == "S" or choice == "s" or choice == "Scissors" or choice == "scissors":
             return "Scissors"
 
-    # Rename player choice
-    rename()
-
+    # กระบวนการของตัวเลือกค้อน
     def rock():
         if rps() == "Rock":
             print("Tie")
@@ -37,6 +33,7 @@ def replay():
         elif rps() == "Scissors":
             print("You won")
 
+    # กระบวนการของตัวเลือกกระดาษ
     def paper():
         if rps() == "Paper":
             print("Tie")
@@ -45,6 +42,7 @@ def replay():
         elif rps() == "Rock":
             print("You won")
 
+    # กระบวนการของตัวเลือกกรรไกร
     def scissors():
         if rps() == "Scissors":
             print("Tie")
@@ -53,7 +51,7 @@ def replay():
         elif rps() == "Paper":
             print("You won")
 
-    # Compile Results
+    # ประมวลผลลัพธ์
     def result():
         if rename() == "Rock":
             rock()
@@ -61,6 +59,12 @@ def replay():
             paper()
         elif rename() == "Scissors":
             scissors()
+
+    # รับข้อมูลตัวเลือกจากผู้เล่นและทำการประมวลผลลัพธ์
+    choice = str(input("Please choose between Rock (R), Paper (P), Scissors (S) "))
+    answer = random.randint(1, 3)
+    rps()
+    rename()
 
     if rename() == "Rock" or rename() == "Paper" or rename() == "Scissors":
         print("You have choose", rename())
@@ -71,20 +75,23 @@ def replay():
         print("So the result is..")
         result()
         time.sleep(1.2)
+        # เล่นอีกรอบ
         again = str(input("Would you like to play again? Yes (Y) or No (N) "))
-        if again == "Yes" or again == "Y" or again == "y":
-            again = "Finish"
+        if again == "Yes" or again == "Y" or again == "y" or again == "yes":
             print("Creating a new game..")
             print("-------------------------------------------------")
             replay()
-        elif again == "No" or again == "N" or again == "n":
+        elif again == "No" or again == "N" or again == "n" or again == "no":
             print("Ending process..")
         else:
             print("Invalid answer")
             time.sleep(1)
-            print("Ending process")
+            print("Ending process..")
     else:
         print("Invalid choice")
+        replay()
 
+
+# เริ่มเกม
 
 replay()
