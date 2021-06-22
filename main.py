@@ -5,8 +5,10 @@ import time
 
 # เล่นอีกรอบ
 
+
 def replay():
     # ตัวเกมหลัก
+
     def rps():
         if answer == 1:
             return "Rock"
@@ -28,6 +30,8 @@ def replay():
     def rock():
         if rps() == "Rock":
             print("Tie")
+            print("Since it was tie you need to pick again")
+            replay()
         elif rps() == "Paper":
             print("You lost")
         elif rps() == "Scissors":
@@ -37,6 +41,8 @@ def replay():
     def paper():
         if rps() == "Paper":
             print("Tie")
+            print("Since it was tie you need to pick again")
+            replay()
         elif rps() == "Scissors":
             print("You lost")
         elif rps() == "Rock":
@@ -46,6 +52,8 @@ def replay():
     def scissors():
         if rps() == "Scissors":
             print("Tie")
+            print("Since it was tie you need to pick again")
+            replay()
         elif rps() == "Rock":
             print("You lost")
         elif rps() == "Paper":
